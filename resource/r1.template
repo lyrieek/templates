@@ -1,0 +1,4 @@
+start
+<<[a-zA-Z]+>>
+<<asd>>
+end
