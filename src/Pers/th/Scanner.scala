@@ -7,19 +7,24 @@ import scala.io.Source
 object Scanner {
 
   def main(args: Array[String]): Unit = {
+    var variable: Set[Expression] = Set()
     val file = Source fromFile "resource/r1.template"
-    val regex = Pattern compile "<<[a-zA-Z]+>>"
+    val regex = Pattern compile "<<[a-zA-Z]+(\\d+)?>>"
     for (line <- file.getLines) {
-//      line match {
-//        case "<<black>>" =>
-//        case _ =>
-//      }
       val item = regex matcher line
       while (item.find){
-        println(item group)
+        variable += new Expression(item.group())
       }
     }
     file.close
+    for (elem <- variable) {
+      println(elem.identifier)
+    }
   }
+
+  def item = {
+
+  }
+  
 
 }
