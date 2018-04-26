@@ -1,0 +1,7 @@
+package com.versionsystem.${package}.${module}.model;
+
+import java.sql.Timestamp;
+
+public class ${^module}UI extends BasicUI{
+
+}

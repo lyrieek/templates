@@ -28,5 +28,9 @@ object Scanner {
     }
     file.close
   }
+  
+  def exec(fn: Function[Unit,Unit]): Unit = {
+    fn.apply()
+  }
 
 }

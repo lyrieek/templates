@@ -11,9 +11,7 @@ class Expression(var label: String) {
     label.substring(2, label.length - 2)
   }
 
-  override def toString: String = {
-    identifier
-  }
+  override def toString: String = identifier
 
   override def hashCode: Int = {
     label.hashCode * 0xfff
