@@ -19,7 +19,11 @@ class Expression(var label: String) {
     label.hashCode * 0xfff
   }
 
-  override def equals(obj: scala.Any): Boolean = {
+  override def equals(obj : Any): Boolean = {
+    obj match{
+      case e:Expression => e.label.equals(this.label)
+      case _ => false
+    }
   }
 
 
