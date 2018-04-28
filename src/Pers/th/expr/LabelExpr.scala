@@ -1,17 +1,13 @@
 package Pers.th.expr
 
-class LabelExpr(var label: String) extends Expression(label) {
+class LabelExpr(label: String) extends Expression(label) {
 
-  item = item.trim
+  override val value: String = label.trim
 
-  if (!item.startsWith("<<") || !item.endsWith(">>"))
+  if (!value.startsWith("<<") || !value.endsWith(">>"))
     throw new Exception("format error")
 
-  override val identifier: String = {
-    item.substring(2, item.length - 2)
-  }
-
-  override val value: String = identifier
+  override val identifier: String = value.substring(2, value.length - 2)
 
 }
 

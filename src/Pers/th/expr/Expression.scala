@@ -7,7 +7,7 @@ package Pers.th.expr
   *
   * @param item 表达式内容
   */
-abstract class Expression(var item: String) {
+abstract class Expression(item: String) {
 
   //标识符
   val identifier: String
