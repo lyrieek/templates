@@ -24,7 +24,7 @@ abstract class Expression(item: String) {
   //以表达式内容进行比对,而非Expression对象
   override def equals(obj: Any): Boolean = {
     obj match {
-      case e: Expression => e.item.equals(this.item)
+      case e: Expression => e.hashCode.equals(this.hashCode)
       case _ => false
     }
   }
