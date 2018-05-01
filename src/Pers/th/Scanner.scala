@@ -26,9 +26,10 @@ object Scanner {
 
   def read(path: String): Unit = {
     val file = Source fromFile path
-    for (line <- file.getLines)
-      regex findAllIn line foreach
-        (item => variable += new VariableExpr(item))
+
+    for (line <- file.getLines) {
+      VariableExpr.analysis(line, item => variable += item)
+    }
     file.close
   }
 

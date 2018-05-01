@@ -1,7 +1,8 @@
 package Pers.th.expr
 
-class LabelExpr(label: String) extends Expression(label) {
+import scala.util.matching.Regex
 
+class LabelExpr(label: String) extends Expression(label) {
   override val value: String = label.trim
 
   if (!value.startsWith("<<") || !value.endsWith(">>"))
