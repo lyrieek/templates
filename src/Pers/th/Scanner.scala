@@ -5,12 +5,8 @@ import java.io.File
 import Pers.th.expr._
 
 import scala.io.Source
-import scala.util.matching.Regex
 
 object Scanner {
-
-  //  val regex: Pattern = Pattern compile "<<[a-zA-Z]+(\\d+)?>>"
-  val regex: Regex = "\\$\\{[a-zA-Z]+(\\d+)?}".r
 
   val files: Array[File] = new File("resource\\vs-module").listFiles()
 
