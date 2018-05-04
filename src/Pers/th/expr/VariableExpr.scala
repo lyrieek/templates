@@ -4,12 +4,12 @@ import scala.util.matching.Regex
 
 class VariableExpr(label: String) extends Expression(label) {
 
-  override val value: String = label.trim
+  override val identifier: String = label.trim
 
-  if (!VariableExpr.regex.pattern.matcher(value).matches())
+  if (!VariableExpr.regex.pattern.matcher(identifier).matches())
     throw new Exception("format error")
 
-  override val identifier: String = value.substring(2, value.length - 1)
+  override val value: String = value.substring(2, value.length - 1)
 
 }
 
