@@ -18,11 +18,12 @@ object Scanner {
     for (elem <- variable)
       println(elem.value)
   }
+
   def read(path: String): Set[Expression] = {
     var variable: Set[Expression] = Set()
     val file = Source fromFile path
     for (line <- file.getLines) {
-      VariableExpr.analysis(line, item => variable += item)
+      VariableExpr.>>(line, item => variable += item)
     }
     file.close
     variable

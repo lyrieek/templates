@@ -9,7 +9,7 @@ class VariableExpr(label: String) extends Expression(label) {
   if (!VariableExpr.regex.pattern.matcher(identifier).matches())
     throw new Exception("format error")
 
-  override val value: String = value.substring(2, value.length - 1)
+  override val value: String = identifier.substring(2, identifier.length - 1)
 
 }
 
@@ -23,7 +23,7 @@ object VariableExpr {
     * @param context 原文本
     * @param fun     回调
     */
-  def analysis(context: String, fun: Function[VariableExpr, Unit]): Unit = {
+  def >>(context: String, fun: Function[VariableExpr, Unit]): Unit = {
     regex findAllIn context foreach { item => fun.apply(new VariableExpr(item)) }
   }
 
