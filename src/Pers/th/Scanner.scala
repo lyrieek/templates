@@ -19,7 +19,6 @@ object Scanner {
     for (file <- files) {
       read(file.getAbsolutePath)
     }
-    //    read("resource/r1.template")
     for (elem <- variable)
       println(elem.value)
   }
@@ -32,12 +31,5 @@ object Scanner {
     }
     file.close
   }
-
-  //  exec(_ => {
-  //    println(1)
-  //  })
-  //  def exec(fn: Function[Unit,Unit]): Unit = {
-  //    fn.apply()
-  //  }
 
 }
