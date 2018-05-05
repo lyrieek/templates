@@ -1,17 +1,22 @@
 package Pers.th
 
-import java.io.FileReader
+import java.io.{FileReader, Writer}
 import java.util.Properties
 
-/**
-  * Created by Tianhao on 2018-05-05.
-  */
 object Parameter {
 
-  def load(path:String)={
-    val prop = new Properties()
-    prop.load(new FileReader(path))
-    
-  }
+  val prop = new Properties()
+
+  def get(key: String): String = prop.getProperty(key)
+
+  def set(key: String, value: String): AnyRef = prop.setProperty(key, value)
+
+  def save(writer: Writer): Unit = prop.store(writer, "Pers.th.Parameter output")
+
+  def load(path: String): Unit = prop.load(new FileReader(path))
+
+  def clear(): Unit = prop.clear()
+
+  def has(any: Any): Boolean = prop.containsKey(any)
 
 }

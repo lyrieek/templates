@@ -16,8 +16,6 @@ object Test {
     val writer = new PrintWriter(logFile)
     writer.println(currentDate)
     writer.close()
-
   }
-
 
 }
