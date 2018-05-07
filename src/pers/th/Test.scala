@@ -1,4 +1,4 @@
-package Pers.th
+package pers.th
 
 import java.io.{File, PrintWriter}
 import java.text.SimpleDateFormat

@@ -1,4 +1,4 @@
-package Pers.th.zip
+package pers.th.zip
 
 import java.io.{File, FileOutputStream}
 import java.util.zip.ZipFile
