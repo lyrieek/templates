@@ -1,4 +1,4 @@
-package Pers.th.expr
+package pers.th.expr
 
 println(new VariableExpr('${foo}').identifier())
 println(new VariableExpr('${bar}').identifier())

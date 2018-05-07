@@ -8,7 +8,7 @@ import scala.io.Source
 
 object Scanner {
 
-  val files: Array[File] = new File("resource\\vs-module").listFiles()
+  val files: Array[File] = new File("resources\\vs-module").listFiles()
 
   def main(args: Array[String]): Unit = {
     var variable: Set[Expression] = Set()
@@ -17,9 +17,12 @@ object Scanner {
     for (file <- files)
       variable ++= read(file.getAbsolutePath)
 
+    val param: Parameter = new Parameter()
     //output variable
     for (elem <- variable)
-      println(s"${elem.value}:")
+      param.set(elem.value)
+
+    param.save("resources/parameter.properties")
   }
 
   def read(path: String): Set[Expression] = {
