@@ -11,7 +11,7 @@ object Parameter {
 
   def set(key: String, value: String): AnyRef = prop.setProperty(key, value)
 
-  def save(writer: Writer): Unit = prop.store(writer, "Pers.th.Parameter output")
+  def save(writer: Writer): Unit = prop.store(writer, "pers.th.Parameter output")
 
   def load(path: String): Unit = prop.load(new FileReader(path))
 
