@@ -7,13 +7,19 @@ import scala.io.Source
 object Export {
 
   def main(args: Array[String]): Unit = {
-    Parameter.load("resources/param-setting.properties")
-    for (path <- files) {
-      val file = Source fromFile path
-      for (line <- file.getLines) {
-        println(line)
-      }
+    val param: Parameter = new Parameter()
+    param.load("resources/parameter.properties")
+    val set = param.entrySet
+    while (set.hasNext) {
+      println(set.next())
     }
+
+    //    for (path <- files) {
+    //      val file = Source fromFile path
+    //      for (line <- file.getLines) {
+    //        println(line)
+    //      }
+    //    }
   }
 
 }
