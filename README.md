@@ -1,4 +1,4 @@
-### templates
+### Templates
 Code generation and export tool
 
 ## 起步
