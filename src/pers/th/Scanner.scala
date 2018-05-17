@@ -20,7 +20,7 @@ object Scanner {
     val param: Parameter = new Parameter()
     //output variable
     for (elem <- variable)
-      param.set(elem.value)
+      param.set(elem.value, elem.value)
 
     param.save("resources/parameter.properties")
   }

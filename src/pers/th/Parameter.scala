@@ -1,17 +1,18 @@
 package pers.th
 
 import java.io.{FileReader, FileWriter, Writer}
-import java.util.Properties
+import java.util
+import java.util.{Map, Properties, Set}
 
 class Parameter {
 
-  val prop = new Properties()
+  val prop: Properties = new Properties()
+
+  def entrySet: util.Iterator[util.Map.Entry[AnyRef, AnyRef]] = prop.entrySet().iterator()
 
   def get(key: String): String = prop.getProperty(key)
 
   def set(key: String, value: String): AnyRef = prop.setProperty(key, value)
-
-  def set(key: String): AnyRef = prop.setProperty(key, "")
 
   def save(writer: Writer): Unit = prop.store(writer, "Pers.th.Parameter output")
 
