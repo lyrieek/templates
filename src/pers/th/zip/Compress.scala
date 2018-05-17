@@ -21,9 +21,7 @@ object Compress {
         val outPath = (descDir + zipEntryName).replaceAll("\\*", "/")
         //判断路径是否存在,不存在则创建文件路径
         val file = new File(outPath.substring(0, outPath.lastIndexOf('/')))
-        if (!file.exists) {
-          file.mkdirs
-        }
+        !file.exists && file.mkdirs
         //判断文件全路径是否为文件夹,如果是上面已经上传,不需要解压
         if (!new File(outPath).isDirectory) {
           //输出文件路径信息
