@@ -2,7 +2,7 @@ package pers.th
 
 import java.io.{FileReader, FileWriter, Writer}
 import java.util
-import java.util.{Map, Properties, Set}
+import java.util.Properties
 
 class Parameter {
 

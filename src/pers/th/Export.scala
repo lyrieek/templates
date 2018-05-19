@@ -11,7 +11,7 @@ object Export {
     param.load("resources/parameter.properties")
     val set = param.entrySet
     while (set.hasNext) {
-      println(set.next())
+      println(set.next().getKey)
     }
 
     //    for (path <- files) {
