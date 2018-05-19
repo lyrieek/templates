@@ -5,11 +5,12 @@ import java.util
 
 import pers.th.expr._
 
+import scala.collection.mutable.ArrayBuffer
 import scala.io.Source
 
 object Scanner {
 
-  val files: Array[File] = new File("resources\\vs-module").listFiles()
+  val files: Array[File] = new File("resources/vs-module").listFiles()
 
   var variable: Set[Expression] = Set()
 
@@ -20,6 +21,7 @@ object Scanner {
 
     val param: Parameter = new Parameter()
     //output variable
+    println(variable.size)
     variable.foreach(elem => param.set(elem.value, elem.value))
 
     param.save("resources/parameter.properties")
@@ -27,18 +29,16 @@ object Scanner {
 
   def lines(path: String): List[String] = {
     val file = Source fromFile path
-    var lines: List[String] = List()
-    file.getLines.foreach(line => lines + (line))
-//    file.getLines.foreach(line => lines ++ line)
+    var lines: ArrayBuffer[String] = ArrayBuffer()
+    file.getLines.foreach(lines += _)
     file.close
-    lines
+    lines.toList
   }
 
   def read(path: String): Unit = {
-    //analysis file context
     lines(path).foreach(line => {
-      println(line)
-      VariableExpr.>>(line, item => variable + item)
+      //analysis file context
+      VariableExpr.>>(line, variable += _)
     })
   }
 
