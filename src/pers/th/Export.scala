@@ -2,12 +2,8 @@ package pers.th
 
 import java.io.{File, PrintStream}
 import java.util
-import java.util.Map
 
-import pers.th.Scanner.files
 import pers.th.expr.VariableExpr
-
-import scala.io.Source
 
 object Export {
 
@@ -27,7 +23,7 @@ object Export {
 
   def main(args: Array[String]): Unit = {
 
-    Scanner.files.foreach(file => {
+    Scanner.files .foreach(file => {
       val currentFile = new File(output.getAbsolutePath + "/" + file.getName.split(".template")(0))
       currentFile.createNewFile()
       val context = new PrintStream(currentFile)
