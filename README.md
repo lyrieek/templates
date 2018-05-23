@@ -1,5 +1,12 @@
-### Templates
+# Templates
 Code generation and export tool
 
-## 起步
-1. 参数识别,生成参数配置文件: pers.th.Scanner
+
+## Getting Started
+1. run: pers.th.Scanner
+2. edit: resources/parameter.properties
+3. run: pers.th.Export
+
+
+## Contributing
+Null
