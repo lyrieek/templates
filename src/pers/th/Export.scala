@@ -23,14 +23,18 @@ object Export {
 
   def main(args: Array[String]): Unit = {
 
-    Scanner.files .foreach(file => {
+    Scanner.files.foreach(file => {
       val currentFile = new File(output.getAbsolutePath + "/" + file.getName.split(".template")(0))
       currentFile.createNewFile()
       val context = new PrintStream(currentFile)
       Scanner.lines(file.getAbsolutePath).foreach(line => {
         var currentLine = line
-        VariableExpr.>>(currentLine, item => {
-          currentLine = currentLine.replace(item.identifier, param.get(item.value))
+        VariableExpr.>>>(currentLine, item => {
+          println(item.identifier)
+          if (param.get(item.value) != null) {
+            currentLine = currentLine.replace(item.identifier, param.get(item.value))
+          }
+          param.get(item.value)
         })
         context.println(currentLine)
         context.flush()

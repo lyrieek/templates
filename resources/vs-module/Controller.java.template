@@ -15,17 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
 import com.versionsystem.${package}.${module}.model.${^module}UI;
 import com.versionsystem.${package}.${module}.impl.${^module}Service;
 
+//${module.upper}
 @RestController
 @RequestMapping("/${module}")
-public class ${^module}Controller {
+public class ${module.pascal}Controller {
 
 	@Autowired
 	private ${^module}Service ${module}Service;
 
-	private Logger logger = Logger.getLogger(${^module}Controller.class);
+	private Logger logger = Logger.getLogger(${module.pascal}Controller.class);
 
 	@RequestMapping(value = "/read")
-	public List<${^module}UI> read() {
+	public List<${module.pascal}UI> read() {
 		try {
 			return ${module}Service.findAll();
 		} catch (Exception e) {

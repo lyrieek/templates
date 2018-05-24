@@ -38,7 +38,7 @@ object Scanner {
   def read(path: String): Unit = {
     lines(path).foreach(line => {
       //analysis file context
-      VariableExpr.>>(line, variable += _)
+      VariableExpr.>>>(line, variable += _)
     })
   }
 
