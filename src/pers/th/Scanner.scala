@@ -1,39 +1,45 @@
 package pers.th
 
 import java.io.File
+import java.util
 
 import pers.th.expr._
 
+import scala.collection.mutable.ArrayBuffer
 import scala.io.Source
 
 object Scanner {
 
-  val files: Array[File] = new File("resources\\vs-module").listFiles()
+  val files: Array[File] = new File("resources/vs-module").listFiles()
+
+  var variable: Set[Expression] = Set()
 
   def main(args: Array[String]): Unit = {
-    var variable: Set[Expression] = Set()
 
     //scanner variable
-    for (file <- files)
-      variable ++= read(file.getAbsolutePath)
+    files.foreach(file => read(file.getAbsolutePath))
 
     val param: Parameter = new Parameter()
     //output variable
-    for (elem <- variable)
-      param.set(elem.value, elem.value)
+    println(variable.size)
+    variable.foreach(elem => param.set(elem.value, elem.value))
 
     param.save("resources/parameter.properties")
   }
 
-  def read(path: String): Set[Expression] = {
-    var variable: Set[Expression] = Set()
+  def lines(path: String): List[String] = {
     val file = Source fromFile path
-    for (line <- file.getLines) {
-      //analysis file context
-      VariableExpr.>>(line, item => variable += item)
-    }
+    var lines: ArrayBuffer[String] = ArrayBuffer()
+    file.getLines.foreach(lines += _)
     file.close
-    variable
+    lines.toList
+  }
+
+  def read(path: String): Unit = {
+    lines(path).foreach(line => {
+      //analysis file context
+      VariableExpr.>>>(line, variable += _)
+    })
   }
 
 }
