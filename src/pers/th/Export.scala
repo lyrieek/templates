@@ -1,25 +1,31 @@
 package pers.th
 
 import java.io.{File, PrintStream}
-import java.util
 
 import pers.th.expr.VariableExpr
+import pers.th.util.SourceReader.lines
 
+/**
+  * 导出工具
+  */
 object Export {
 
   val param: Parameter = new Parameter()
-  param.load("resources/parameter.properties")
-  val set: util.Iterator[util.Map.Entry[AnyRef, AnyRef]] = param.entrySet
 
-  val output = new File("resources/output")
-  if (output.exists()) {
-    val listFile = output.listFiles()
-    listFile.isEmpty && output.delete
-    if (listFile.nonEmpty) {
-      listFile.foreach(fileItem => fileItem.delete())
+  param.load("resources/parameter.properties")
+
+  val output: File = {
+    val output = new File("resources/output")
+    if (output.exists()) {
+      val listFile = output.listFiles()
+      listFile.isEmpty && output.delete
+      if (listFile.nonEmpty) {
+        listFile.foreach(fileItem => fileItem.delete())
+      }
     }
+    output.mkdir()
+    output
   }
-  output.mkdir()
 
   def main(args: Array[String]): Unit = {
 
@@ -27,7 +33,7 @@ object Export {
       val currentFile = new File(output.getAbsolutePath + "/" + file.getName.split(".template")(0))
       currentFile.createNewFile()
       val context = new PrintStream(currentFile)
-      Scanner.lines(file.getAbsolutePath).foreach(line => {
+      lines(file.getAbsolutePath).foreach(line => {
         var currentLine = line
         VariableExpr.>>>(currentLine, item => {
           println(item.identifier)

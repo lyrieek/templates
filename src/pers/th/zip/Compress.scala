@@ -3,6 +3,9 @@ package pers.th.zip
 import java.io.{File, FileOutputStream}
 import java.util.zip.ZipFile
 
+/**
+  * 压缩文件
+  */
 object Compress {
 
   def unZipFile(zipFile: File, descDir: String): Boolean = {
@@ -14,6 +17,7 @@ object Compress {
       }
       val zip = new ZipFile(zipFile)
       val entries = zip.entries
+
       while (entries.hasMoreElements) {
         val entry = entries.nextElement
         val zipEntryName = entry.getName
