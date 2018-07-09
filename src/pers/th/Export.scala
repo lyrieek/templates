@@ -11,7 +11,6 @@ import pers.th.util.SourceReader.lines
 object Export {
 
   val param: Parameter = new Parameter()
-
   param.load("resources/parameter.properties")
 
   val output: File = {
