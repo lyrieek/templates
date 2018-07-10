@@ -1,25 +1,14 @@
 package pers.th
 
 import org.junit.Test
-import org.junit.Before
 import org.mockito.InjectMocks
 import org.mockito.Mock
-import org.mockito.MockitoAnnotations
-import static org.mockito.Mockito.*
 
-/**
- * Created by Tianhao on 2018-07-09.
- */
 class Export$Test {
     @Mock
     Export$ MODULE$
     @InjectMocks
     Export$ export$
-
-    @Before
-    void setUp() {
-        MockitoAnnotations.initMocks(this)
-    }
 
     @Test
     void testMain() {
@@ -29,7 +18,7 @@ class Export$Test {
     @Test
     void testOutput() {
         File result = export$.output()
-        assert result == new File(getClass().getResource("/pers/th/PleaseReplaceMeWithTestFile.txt").getFile())
+        assert result == null
     }
 
     @Test

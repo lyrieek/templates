@@ -25,8 +25,7 @@ object VariableExpr {
     */
   def >>>(context: String, fun: Function[VariableExpr, Unit]): Unit = {
     regex findAllIn context foreach (item => {
-      val expr = new VariableExpr(item)
-      fun.apply(expr)
+      fun.apply(new VariableExpr(item))
     })
   }
 
