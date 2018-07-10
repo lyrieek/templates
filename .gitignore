@@ -1,6 +1,7 @@
 *.class
 *.log
 /.idea/
+/.gradle/
 /output/
 /resources
 *.iml

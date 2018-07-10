@@ -1,0 +1,22 @@
+group = 'pers.th'
+
+description = 'Code generation and export tool'
+version = '0.1'
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: "groovy"
+    apply plugin: "scala"
+    apply plugin: "idea"
+    apply plugin: 'application'
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        compile "org.scala-lang:scala-library:2.11.7"
+        testCompile 'org.mockito:mockito-core:2.18.9'
+    }
+}
