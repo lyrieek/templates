@@ -1,6 +1,13 @@
 package pers.th.expr
 
+import org.junit.Test
 
-println(new LabelExpr(" <<asd>>").identifier())
-println(new LabelExpr("<<213>> ").identifier())
+class LabelExpr$Test {
 
+    @Test
+    void single() {
+        println(new LabelExpr(" <<asd>>").value())
+        println(new LabelExpr("<<213>> ").value())
+    }
+
+}

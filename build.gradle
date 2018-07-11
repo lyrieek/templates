@@ -1,8 +1,4 @@
 group = 'pers.th'
-artifacts {
-    "Template"
-}
-
 description = 'Code generation and export tool'
 version = '0.1'
 
