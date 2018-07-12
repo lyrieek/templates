@@ -1,5 +1,7 @@
 package pers.th.expr
 
+import pers.th.exception.FormatException
+
 import scala.util.matching.Regex
 
 class VariableExpr(label: String) extends Expression(label) {
@@ -7,7 +9,7 @@ class VariableExpr(label: String) extends Expression(label) {
   override val identifier: String = label.trim
 
   if (!VariableExpr.regex.pattern.matcher(identifier).matches())
-    throw new Exception("format error")
+    throw new FormatException
 
   override val value: String = identifier.substring(2, identifier.length - 1)
 
