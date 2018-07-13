@@ -10,6 +10,7 @@ class VariableExpr$Test {
     void single() {
         println(new VariableExpr('${foo}').value())
         println(new VariableExpr('${bar}').value())
+        println(new VariableExpr('${bar}').value())
     }
 
     @Test

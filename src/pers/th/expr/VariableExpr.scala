@@ -9,7 +9,7 @@ class VariableExpr(label: String) extends Expression(label) {
   override val identifier: String = label.trim
 
   if (!VariableExpr.regex.pattern.matcher(identifier).matches())
-    throw new FormatException
+    throw FormatException("")
 
   override val value: String = identifier.substring(2, identifier.length - 1)
 

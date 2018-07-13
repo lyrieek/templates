@@ -1,9 +1,6 @@
 package pers.th.exception
 
-case class FormatException() extends RuntimeException {
+case class FormatException(message: String) extends RuntimeException(message) {
 
-//  def this() {
-//    this("Format Error")
-//  }
 
 }
