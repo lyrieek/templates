@@ -1,7 +1,10 @@
+/.idea
+/.gradle
+/output
+/resources
+/out
+/build
 *.class
 *.log
-/.idea/
-/.gradle/
-/output/
-/resources
 *.iml
+*.template

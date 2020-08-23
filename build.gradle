@@ -1,30 +1,32 @@
+plugins {
+    id 'scala'
+    id 'idea'
+    id 'groovy'
+    id 'java-library'
+    id 'application'
+}
+
 group = 'pers.th'
 description = 'Code generation and export tool'
 version = '0.1'
 
-allprojects {
-    apply plugin: 'java'
-    apply plugin: "scala"
-    apply plugin: "groovy"
-    apply plugin: "idea"
-    apply plugin: 'application'
 
-    sourceSets.main.scala {
-        srcDirs = ['src']
-    }
-    sourceSets.test.groovy {
-        srcDirs = ['test']
-    }
+sourceSets.main.scala {
+    srcDirs = ['src']
+}
+sourceSets.test.groovy {
+    srcDirs = ['test']
+}
 
-    repositories {
-        jcenter()
-    }
+repositories {
+    jcenter()
+}
 
-    dependencies {
-        compile "org.scala-lang:scala-library:2.11.7"
-        testCompile 'org.codehaus.groovy:groovy-all:2.4.4'
-//        testCompile group: "org.mockito", name: "mockito-core", version: "latest.integration"
-        testCompile 'org.mockito:mockito-core:2.19.0'
-        testCompile 'junit:junit:4.12'
-    }
+dependencies {
+    implementation group: 'org.scala-lang', name: 'scala-library', version: '2.13.3'
+    implementation group: 'org.scala-lang', name: 'scala-compiler', version: '2.13.3'
+//        compile "org.scala-lang:scala-library:2.11.7"
+    testImplementation 'org.codehaus.groovy:groovy-all:2.4.4'
+    testImplementation 'org.mockito:mockito-core:2.19.0'
+    testImplementation 'junit:junit:4.12'
 }
