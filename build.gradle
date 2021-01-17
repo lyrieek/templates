@@ -6,7 +6,7 @@ plugins {
     id 'application'
 }
 
-group = 'pers.th'
+group = 'com.lyrieek'
 description = 'Code generation and export tool'
 version = '0.1'
 

@@ -1,4 +1,4 @@
-package pers.th.expr
+package com.lyrieek.expr
 
 import org.junit.Test
 

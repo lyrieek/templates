@@ -1,4 +1,4 @@
-package pers.th.expr
+package com.lyrieek.expr
 
 class LabelExpr(label: String) extends Expression(label) {
   override val value: String = label.trim

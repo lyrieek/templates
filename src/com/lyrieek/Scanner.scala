@@ -1,10 +1,10 @@
-package pers.th
+package com.lyrieek
 
 import java.io.File
 
-import pers.th.expr._
-
-import pers.th.util.SourceReader.lines
+import com.lyrieek.expr.{Expression, VariableExpr}
+import com.lyrieek.expr._
+import com.lyrieek.util.SourceReader.lines
 
 /**
   * 扫描器

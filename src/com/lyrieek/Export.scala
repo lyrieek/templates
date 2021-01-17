@@ -1,9 +1,9 @@
-package pers.th
+package com.lyrieek
 
 import java.io.{File, PrintStream}
 
-import pers.th.expr.VariableExpr
-import pers.th.util.SourceReader.lines
+import com.lyrieek.expr.VariableExpr
+import com.lyrieek.util.SourceReader.lines
 
 /**
   * 导出工具

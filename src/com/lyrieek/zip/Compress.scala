@@ -1,4 +1,4 @@
-package pers.th.zip
+package com.lyrieek.zip
 
 import java.io.{File, FileOutputStream}
 import java.util.zip.ZipFile

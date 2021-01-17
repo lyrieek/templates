@@ -1,4 +1,4 @@
-package pers.th
+package com.lyrieek
 
 import java.io.{File, PrintWriter}
 import java.text.SimpleDateFormat
