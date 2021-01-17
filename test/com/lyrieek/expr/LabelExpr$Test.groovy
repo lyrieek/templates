@@ -2,6 +2,9 @@ package com.lyrieek.expr
 
 import org.junit.Test
 
+/**
+ * 测试提取标签
+ */
 class LabelExpr$Test {
 
     @Test

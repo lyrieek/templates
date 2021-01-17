@@ -12,7 +12,7 @@ object Test {
 
   def main(args: Array[String]): Unit = {
     logFile.exists && logFile.delete
-    logFile createNewFile
+    logFile.createNewFile
     val writer = new PrintWriter(logFile)
     writer.println(currentDate)
     writer.close()
