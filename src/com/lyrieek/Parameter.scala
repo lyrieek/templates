@@ -6,27 +6,27 @@ import java.util.Properties
 
 class Parameter {
 
-  val prop: Properties = new Properties()
+	val prop: Properties = new Properties()
 
-  def entrySet: java.util.Iterator[Entry[AnyRef, AnyRef]] = prop.entrySet().iterator()
+	def entrySet: java.util.Iterator[Entry[AnyRef, AnyRef]] = prop.entrySet().iterator()
 
-  def get(key: String): String = prop.getProperty(key)
+	def get(key: String): String = prop.getProperty(key)
 
-  def set(key: String, value: String): AnyRef = prop.setProperty(key, value)
+	def set(key: String, value: String): AnyRef = prop.setProperty(key, value)
 
-  def save(writer: Writer): Unit = prop.store(writer, "com.lyrieek.Parameter output")
+	def save(writer: Writer): Unit = prop.store(writer, "com.lyrieek.Parameter output")
 
-  def save(path: String): Unit = {
-    val writer: FileWriter = new FileWriter(path)
-    save(writer)
-    writer.flush()
-    writer.close()
-  }
+	def save(path: String): Unit = {
+		val writer: FileWriter = new FileWriter(path)
+		save(writer)
+		writer.flush()
+		writer.close()
+	}
 
-  def load(path: String): Unit = prop.load(new FileReader(path))
+	def load(path: String): Unit = prop.load(new FileReader(path))
 
-  def clear(): Unit = prop.clear()
+	def clear(): Unit = prop.clear()
 
-  def has(any: Any): Boolean = prop.containsKey(any)
+	def has(any: Any): Boolean = prop.containsKey(any)
 
 }

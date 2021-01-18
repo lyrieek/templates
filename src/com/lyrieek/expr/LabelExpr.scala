@@ -1,12 +1,12 @@
 package com.lyrieek.expr
 
 class LabelExpr(label: String) extends Expression(label) {
-  override val value: String = label.trim
+	override val value: String = label.trim
 
-  if (!value.startsWith("<<") || !value.endsWith(">>"))
-    throw new Exception("format error")
+	if (!value.startsWith("<<") || !value.endsWith(">>"))
+		throw new Exception("format error")
 
-  override val identifier: String = value.substring(2, value.length - 2)
+	override val identifier: String = value.substring(2, value.length - 2)
 
 }
 
