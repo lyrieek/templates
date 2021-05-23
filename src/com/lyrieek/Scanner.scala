@@ -7,15 +7,13 @@ import com.lyrieek.util.SourceReader.lines
 
 class Scanner(moduleFolder: String) {
 
-	val files: Array[File] = new File(moduleFolder).listFiles()
+	val files: Array[File] = new File(moduleFolder).listFiles().filter(_.getName.endsWith(".template"))
 
 	var variable: Set[Expression] = Set()
 
 	def scan(): Parameter = {
 		//scanner variable
-		files.foreach(file => if (file.getName.endsWith(".template")) {
-			read(file.getAbsolutePath)
-		})
+		files.foreach(file => read(file.getAbsolutePath))
 
 		//fill variable
 		val param: Parameter = new Parameter()

@@ -8,34 +8,31 @@ import com.lyrieek.util.SourceReader.lines
 /**
   * 导出工具
   */
-object Export {
+class Export(moduleFolder: String) {
 
 	val param: Parameter = new Parameter()
-	param.load("resources/parameter.properties")
 
-	val output: File = {
-		val output = new File("resources/output")
-		if (output.exists()) {
-			val listFile = output.listFiles()
-			listFile.isEmpty && output.delete
-			if (listFile.nonEmpty) {
-				listFile.foreach(fileItem => fileItem.delete())
-			}
-		}
-		output.mkdir()
-		output
-	}
+//	val output: File = {
+//		val output = new File("resources/output")
+//		if (output.exists()) {
+//			val listFile = output.listFiles()
+//			listFile.isEmpty && output.delete
+//			if (listFile.nonEmpty) {
+//				listFile.foreach(fileItem => fileItem.delete())
+//			}
+//		}
+//		output.mkdir()
+//		output
+//	}
 
-	def main(args: Array[String]): Unit = {
-
-		Scanner.files.foreach(file => {
-			val currentFile = new File(output.getAbsolutePath + "/" + file.getName.split(".template")(0))
+	def run(): Unit = {
+		new Scanner(moduleFolder).files.foreach(file => {
+			val currentFile = new File(moduleFolder + file.getName.split(".template")(0) + ".txt")
 			currentFile.createNewFile()
 			val context = new PrintStream(currentFile)
 			lines(file.getAbsolutePath).foreach(line => {
 				var currentLine = line
-				VariableExpr.>>>(currentLine, item => {
-					println(item.identifier)
+				VariableExpr.scan(currentLine, item => {
 					if (param.get(item.value) != null) {
 						currentLine = currentLine.replace(item.identifier, param.get(item.value))
 					}
