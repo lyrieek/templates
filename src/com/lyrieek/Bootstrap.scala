@@ -10,14 +10,14 @@ object Bootstrap extends App {
 
 	val paramFile = new File(moduleFolder + "parameter.properties")
 	if (FileOperations.need(paramFile)) {
-		new Scanner(moduleFolder).scan().save(moduleFolder + "parameter.properties")
+		new Scanner(moduleFolder).scan().save(paramFile)
 		sys.exit()
 	}
 
 	println("parameter file:" + paramFile)
 
 	val export = new Export(moduleFolder)
-	export.param.load(moduleFolder + "parameter.properties")
+	export.param.load(paramFile)
 	export.run()
 
 }

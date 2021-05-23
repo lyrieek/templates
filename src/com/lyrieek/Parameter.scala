@@ -1,6 +1,6 @@
 package com.lyrieek
 
-import java.io.{FileReader, FileWriter, Writer}
+import java.io.{File, FileReader, FileWriter, Writer}
 import java.util.Map.Entry
 import java.util.Properties
 
@@ -16,7 +16,7 @@ class Parameter {
 
 	def save(writer: Writer): Unit = prop.store(writer, "com.lyrieek.Parameter output")
 
-	def save(path: String): Unit = {
+	def save(path: File): Unit = {
 		val writer: FileWriter = new FileWriter(path)
 		save(writer)
 		writer.flush()
@@ -24,6 +24,8 @@ class Parameter {
 	}
 
 	def load(path: String): Unit = prop.load(new FileReader(path))
+
+	def load(file: File): Unit = prop.load(new FileReader(file))
 
 	def clear(): Unit = prop.clear()
 
