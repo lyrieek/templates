@@ -3,35 +3,31 @@ package com.lyrieek
 import java.io.File
 
 import com.lyrieek.expr.{Expression, VariableExpr}
-import com.lyrieek.expr._
 import com.lyrieek.util.SourceReader.lines
 
-/**
-  * 扫描器
-  */
-object Scanner {
+class Scanner(moduleFolder: String) {
 
-	val files: Array[File] = new File("resources/vs-module").listFiles()
+	val files: Array[File] = new File(moduleFolder).listFiles()
 
 	var variable: Set[Expression] = Set()
 
-	def main(args: Array[String]): Unit = {
-
+	def scan(): Parameter = {
 		//scanner variable
-		files.foreach(file => read(file.getAbsolutePath))
+		files.foreach(file => if (file.getName.endsWith(".template")) {
+			read(file.getAbsolutePath)
+		})
 
+		//fill variable
 		val param: Parameter = new Parameter()
-		//output variable
 		println(variable.size)
-		variable.foreach(elem => param.set(elem.value, elem.value))
-
-		param.save("resources/parameter.properties")
+		variable.foreach(elem => param.set(elem.value, ""))
+		param
 	}
 
 	def read(path: String): Unit = {
 		lines(path).foreach(line => {
 			//analysis file context
-			VariableExpr.>>>(line, variable += _)
+			VariableExpr.scan(line, variable += _)
 		})
 	}
 

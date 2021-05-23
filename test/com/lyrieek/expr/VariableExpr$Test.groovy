@@ -18,7 +18,7 @@ class VariableExpr$Test {
 
     @Test
     void testBatchScanAndParse() {
-        VariableExpr.$greater$greater$greater('''
+        VariableExpr.scan('''
             example text: ${foo} ok
             enter
             ${bar}

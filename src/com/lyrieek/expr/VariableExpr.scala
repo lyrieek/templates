@@ -17,15 +17,15 @@ class VariableExpr(label: String) extends Expression(label) {
 
 object VariableExpr {
 
-	val regex: Regex = "\\$\\{[a-zA-Z]+(\\d+)?(\\.[a-zA-Z]+(\\d+)?)?}".r
+	val regex: Regex = "\\\\\\{[a-zA-Z]+(\\d+)?(\\.[a-zA-Z]+(\\d+)?)?}".r
 
 	/**
-	  * 根据context 生成多个VariableExpr
+	  * Scan the text to get all the variables
 	  *
-	  * @param context 原文本
-	  * @param fun     回调
+	  * @param context	content
+	  * @param fun		callback
 	  */
-	def >>>(context: String, fun: Function[VariableExpr, Unit]): Unit = {
+	def scan(context: String, fun: Function[VariableExpr, Unit]): Unit = {
 		regex findAllIn context foreach (item => {
 			fun.apply(new VariableExpr(item))
 		})
