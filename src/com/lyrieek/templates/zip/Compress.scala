@@ -1,4 +1,4 @@
-package com.lyrieek.zip
+package com.lyrieek.templates.zip
 
 import java.io.{File, FileOutputStream}
 import java.util.zip.ZipFile

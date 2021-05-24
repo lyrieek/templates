@@ -1,9 +1,9 @@
-package com.lyrieek
+package com.lyrieek.templates
 
 import java.io.{File, PrintStream}
 
-import com.lyrieek.expr.VariableExpr
-import com.lyrieek.util.SourceReader.lines
+import com.lyrieek.templates.expr.VariableExpr
+import com.lyrieek.templates.util.SourceReader.lines
 
 /**
   * 导出工具
@@ -27,7 +27,7 @@ class Export(moduleFolder: String) {
 
 	def run(): Unit = {
 		new Scanner(moduleFolder).files.foreach(file => {
-			val currentFile = new File(moduleFolder + file.getName.split(".template")(0) + ".txt")
+			val currentFile = new File(moduleFolder + file.getName.split(".templates")(0) + ".txt")
 			currentFile.createNewFile()
 			val context = new PrintStream(currentFile)
 			lines(file.getAbsolutePath).foreach(line => {

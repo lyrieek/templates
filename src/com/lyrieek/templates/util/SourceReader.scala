@@ -1,4 +1,4 @@
-package com.lyrieek.util
+package com.lyrieek.templates.util
 
 import scala.collection.mutable.ArrayBuffer
 import scala.io.Source

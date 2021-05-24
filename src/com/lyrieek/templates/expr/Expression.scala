@@ -1,8 +1,8 @@
-package com.lyrieek.expr
+package com.lyrieek.templates.expr
 
 /**
   * 表达式
-  * <p>e.g. << label.upper >></p>
+  * <p>e.g. \{label.upper}</p>
   * <p>i.e. (标识符:值)</p>
   *
   * @param item 表达式内容

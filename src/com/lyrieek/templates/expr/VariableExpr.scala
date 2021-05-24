@@ -1,6 +1,6 @@
-package com.lyrieek.expr
+package com.lyrieek.templates.expr
 
-import com.lyrieek.exception.ParseException
+import com.lyrieek.templates.exception.ParseException
 
 import scala.util.matching.Regex
 

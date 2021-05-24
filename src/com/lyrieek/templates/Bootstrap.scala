@@ -1,12 +1,12 @@
-package com.lyrieek
+package com.lyrieek.templates
 
 import java.io.File
 
-import com.lyrieek.util.FileOperations
+import com.lyrieek.templates.util.FileOperations
 
 object Bootstrap extends App {
 
-	val moduleFolder = "./resources/simpleTest/"
+	val moduleFolder = "./resources/templates-test/"
 
 	val paramFile = new File(moduleFolder + "parameter.properties")
 	if (FileOperations.need(paramFile)) {

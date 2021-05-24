@@ -1,8 +1,8 @@
-package com.lyrieek.util
+package com.lyrieek.templates.util
 
 import java.io.File
 
-import com.lyrieek.exception.FileOperationsException
+import com.lyrieek.templates.exception.FileOperationsException
 
 object FileOperations {
 

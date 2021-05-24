@@ -1,13 +1,13 @@
-package com.lyrieek
+package com.lyrieek.templates
 
 import java.io.File
 
-import com.lyrieek.expr.{Expression, VariableExpr}
-import com.lyrieek.util.SourceReader.lines
+import com.lyrieek.templates.expr.{Expression, VariableExpr}
+import com.lyrieek.templates.util.SourceReader.lines
 
 class Scanner(moduleFolder: String) {
 
-	val files: Array[File] = new File(moduleFolder).listFiles().filter(_.getName.endsWith(".template"))
+	val files: Array[File] = new File(moduleFolder).listFiles().filter(_.getName.endsWith(".templates"))
 
 	var variable: Set[Expression] = Set()
 

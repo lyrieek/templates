@@ -1,4 +1,4 @@
-package com.lyrieek
+package com.lyrieek.templates
 
 import java.io.{File, FileReader, FileWriter, Writer}
 import java.util.Map.Entry
@@ -14,7 +14,7 @@ class Parameter {
 
 	def set(key: String, value: String): AnyRef = prop.setProperty(key, value)
 
-	def save(writer: Writer): Unit = prop.store(writer, "com.lyrieek.Parameter output")
+	def save(writer: Writer): Unit = prop.store(writer, "Parameter output")
 
 	def save(path: File): Unit = {
 		val writer: FileWriter = new FileWriter(path)

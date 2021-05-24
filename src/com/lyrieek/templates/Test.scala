@@ -1,4 +1,4 @@
-package com.lyrieek
+package com.lyrieek.templates
 
 import java.io.{File, PrintWriter}
 import java.text.SimpleDateFormat

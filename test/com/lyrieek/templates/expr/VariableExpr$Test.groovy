@@ -1,4 +1,4 @@
-package com.lyrieek.expr
+package com.lyrieek.templates.expr
 
 import org.junit.Test
 import scala.Function1
