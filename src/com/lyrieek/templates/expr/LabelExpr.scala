@@ -3,6 +3,8 @@ package com.lyrieek.templates.expr
 class LabelExpr(label: String) extends Expression(label) {
 	override val value: String = label.trim
 
+	override val functions: String = label.trim
+
 	if (!value.startsWith("<<") || !value.endsWith(">>"))
 		throw new Exception("format error")
 

@@ -15,6 +15,9 @@ abstract class Expression(item: String) {
 	//值
 	val value: String
 
+	//使用的函数
+	val functions: String
+
 	//打印标识符
 	override def toString: String = identifier
 

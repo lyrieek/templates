@@ -42,6 +42,18 @@ console.log(foo)
 - `file.common.ext` default file extension
 - `file.builtIn.ext` extension are already built in and do not need to be added
 
+## Parametric decoration function
+Under normal conditions, you need to avoid “.” in parameter, because using it means you're going to call some decorator function, these methods are listed below
+
+| Function name | Description | Example | Example result |
+| :--- | --- | --- | --- |
+| .upper | upper case | \\{v.upper}, v=abC | ABC |
+| .lower | lower case | \\{v.lower}, v=AbC | abc |
+| .camel | camel nomenclature | \\{v.camel}, v=sweet bean | sweetBean |
+| .pascal | pascal nomenclature | \\{v.pascal}, v=sweet bean | SweetBean |
+| .hungarian | Hungarian nomenclature | \\{v.hungarian}, v=sweet bean | sweet_bean |
+| .natural | natural language | \\{v.natural}, v=SweetBean | sweet bean |
+
 ## Contributing
 Apache-2.0
 

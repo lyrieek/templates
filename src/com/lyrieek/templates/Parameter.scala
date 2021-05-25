@@ -12,7 +12,9 @@ class Parameter {
 
 	def get(key: String): String = {
 		val value = prop.getProperty(key)
-		if (value.startsWith("$"))
+		if (value == null)
+			""
+		else if (value.startsWith("$"))
 			get(value.substring(1))
 		else value
 	}
