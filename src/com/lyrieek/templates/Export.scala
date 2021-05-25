@@ -12,22 +12,32 @@ class Export(moduleFolder: String) {
 
 	val param: Parameter = new Parameter()
 
-//	val output: File = {
-//		val output = new File("resources/output")
-//		if (output.exists()) {
-//			val listFile = output.listFiles()
-//			listFile.isEmpty && output.delete
-//			if (listFile.nonEmpty) {
-//				listFile.foreach(fileItem => fileItem.delete())
-//			}
-//		}
-//		output.mkdir()
-//		output
-//	}
+	//	val output: File = {
+	//		val output = new File("resources/output")
+	//		if (output.exists()) {
+	//			val listFile = output.listFiles()
+	//			listFile.isEmpty && output.delete
+	//			if (listFile.nonEmpty) {
+	//				listFile.foreach(fileItem => fileItem.delete())
+	//			}
+	//		}
+	//		output.mkdir()
+	//		output
+	//	}
 
 	def run(): Unit = {
 		new Scanner(moduleFolder).files.foreach(file => {
-			val currentFile = new File(moduleFolder + file.getName.split(".templates")(0) + ".txt")
+			val ext = param match {
+				case builtIn if builtIn.has("file.builtIn.ext") && file.getName.matches(param.get("file.builtIn.ext")) => ""
+				case common if common.has("file.common.ext") => param.get("file.common.ext")
+				case _ => TemplateConstant.FILE_COMMON_EXT_DEFAULT
+			}
+//			val ext = {
+//				if (param.has("file.builtIn.ext") && file.getName.matches(param.get("file.builtIn.ext"))) ""
+//				else if (param.has("file.common.ext")) param.get("file.common.ext")
+//				else TemplateConstant.FILE_COMMON_EXT_DEFAULT
+//			}
+			val currentFile = new File(moduleFolder, param.get("file.common.prefix") + file.getName.split("\\.")(0) + ext)
 			currentFile.createNewFile()
 			val context = new PrintStream(currentFile)
 			lines(file.getAbsolutePath).foreach(line => {

@@ -10,7 +10,12 @@ class Parameter {
 
 	def entrySet: java.util.Iterator[Entry[AnyRef, AnyRef]] = prop.entrySet().iterator()
 
-	def get(key: String): String = prop.getProperty(key)
+	def get(key: String): String = {
+		val value = prop.getProperty(key)
+		if (value.startsWith("$"))
+			get(value.substring(1))
+		else value
+	}
 
 	def set(key: String, value: String): AnyRef = prop.setProperty(key, value)
 

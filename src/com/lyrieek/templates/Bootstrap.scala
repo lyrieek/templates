@@ -8,7 +8,7 @@ object Bootstrap extends App {
 
 	val moduleFolder = "./resources/templates-test/"
 
-	val paramFile = new File(moduleFolder + "parameter.properties")
+	val paramFile = new File(moduleFolder + TemplateConstant.PARA_FILE_DEFAULT)
 	if (FileOperations.need(paramFile)) {
 		new Scanner(moduleFolder).scan().save(paramFile)
 		sys.exit()

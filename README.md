@@ -35,6 +35,13 @@ var foo = 'Hello templates'
 console.log(foo)
 ```
 
+## Properties configuration
+
+### `parameter.properties`
+- `file.common.prefix` output file starts with this by default
+- `file.common.ext` default file extension
+- `file.builtIn.ext` extension are already built in and do not need to be added
+
 ## Contributing
 Apache-2.0
 
