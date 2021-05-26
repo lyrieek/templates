@@ -4,11 +4,13 @@ plugins {
     id 'groovy'
     id 'java-library'
     id 'application'
+    id 'maven-publish'
+    id 'signing'
 }
 
 group = 'com.lyrieek'
 description = 'Code generation and export tool'
-version = '0.1'
+version = '0.1.1'
 
 
 sourceSets.main.scala {
@@ -25,8 +27,50 @@ repositories {
 dependencies {
     implementation group: 'org.scala-lang', name: 'scala-library', version: '2.13.3'
     implementation group: 'org.scala-lang', name: 'scala-compiler', version: '2.13.3'
-//        compile "org.scala-lang:scala-library:2.11.7"
     testImplementation 'org.codehaus.groovy:groovy-all:2.4.4'
     testImplementation 'org.mockito:mockito-core:2.19.0'
     testImplementation 'junit:junit:4.12'
+}
+
+publishing {
+    repositories {
+        maven {
+            url "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+            credentials {
+                username ossrhUsername
+                password ossrhPassword
+            }
+        }
+    }
+    publications {
+        mavenJava(MavenPublication) {
+            pom {
+                name = 'Templates'
+                description = 'Code generation and export tool'
+                url = 'http://www.lyrieek.com/library'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'lyrieek'
+                        name = 'lyrieek cn'
+                        email = 'lyrieek@qq.com'
+                    }
+                }
+                scm {
+                    connection = 'https://github.com/lyrieek/templates'
+                    developerConnection = 'scm:git:git://github.com/lyrieek/templates.git'
+                    url = 'scm:git:ssh://git@github.com:lyrieek/templates.git'
+                }
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
 }
