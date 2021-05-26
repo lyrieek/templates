@@ -45,15 +45,15 @@ class Export(moduleFolder: String) {
 			lines(file.getAbsolutePath).foreach(line => {
 				var currentLine = line
 				VariableExpr.scan(currentLine, item => {
-					if (param.get(item.value) != null) {
-						currentLine = currentLine.replace(item.identifier, {
-							if (item.functions.isEmpty)
-								param.get(item.value)
-							else
-								fi.exec(item.functions, param.get(item.value))
-						})
-					}
-					param.get(item.value)
+					val fillValue = param.get(item.value)
+					currentLine = if (fillValue == null)
+						""
+					else currentLine.replace(item.identifier, {
+						if (item.functions.isEmpty)
+							fillValue
+						else
+							fi.exec(item.functions, fillValue)
+					})
 				})
 				context.println(currentLine)
 				context.flush()

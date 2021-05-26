@@ -1,6 +1,5 @@
 package com.lyrieek.templates.expr
 
-import com.lyrieek.templates.expr.LabelExpr
 import org.junit.Test
 
 /**

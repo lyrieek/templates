@@ -11,7 +11,7 @@ object SourceReader {
 	def lines(path: String): List[String] = {
 		val file = Source fromFile path
 		var lines: ArrayBuffer[String] = ArrayBuffer()
-		file.getLines.foreach(lines += _)
+		file.getLines().foreach(lines += _)
 		file.close
 		lines.toList
 	}
